@@ -5,6 +5,9 @@ import {Text,Button, Box, Container, VStack, Flex, Spacer   } from '@chakra-ui/r
 import axios from "axios"
 import { useEffect, useState } from 'react';
 import NewsCard from './Components/NewsCard';
+import LeftMenu from './Components/LeftMenu';
+import RightMenu from './Components/RightMenu';
+import Home from './Pages/Home';
 
 
 //  all series
@@ -21,40 +24,40 @@ function App() {
 
   const [a, setA]=useState(0)
 
-  useEffect(()=>{
-    axios.get("https://api.cricapi.com/v1/series?apikey=41857ae3-1feb-4c56-865f-2f4ee9fe0d5e&offset=0")
-    .then((res)=>console.log(res))
-    .catch((err)=>console.log(err))
-      },[a])
+//   useEffect(()=>{
   
-      function fet(){
-setA(a+1)
-  }
+//     var options = {
+//       method: 'GET',
+//       url: 'https://api.newscatcherapi.com/v2/search',
+//       params: {q: 'ICC Cricket', lang: 'en', sort_by: 'relevancy', page: '1'},
+//       headers: {
+//         'x-api-key': 'uccfiQTDwOxRKJfNTARVDb_15vIbCU4xdPAtwXYe6qM'
+//       }
+//     };
+    
+//     axios.request(options).then(function (response) {
+//       console.log(response.data);
+//     }).catch(function (error) {
+//       console.error(error);
+//     });
+
+//     // axios.get("https://api.cricapi.com/v1/series?apikey=41857ae3-1feb-4c56-865f-2f4ee9fe0d5e&offset=0")
+//     // .then((res)=>console.log(res))
+//     // .catch((err)=>console.log(err))
+//       },[a])
+  
+
+//       function fet(){
+// setA(a+1)
+//   }
 
 
 
   return (
   <>
     {/* <Button onClick={fet}>fetch</Button> */}
+<Home></Home>
 
-<Box w="100%" bg="#f9f9fb" h="100vh">
-    <Navbar></Navbar>
-
-    <Flex pl="50px" pr="50px">
-  <Box p='4' bg='red.400' w="22%">
-    Box 1
-  </Box>
-  <Spacer />
-  <Box bg="white" w="50%" borderRadius={"15px"}>
-  <NewsCard/>
-  </Box>
-  <Spacer />
-  <Box p='4' bg='green.400'  w="26%">
-    Box 3
-  </Box>
-</Flex>
-
-</Box>
     </>
     );
 }
