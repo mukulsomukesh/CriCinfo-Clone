@@ -5,13 +5,13 @@ export const reducer =(state, action)=>{
         case "DAY_THEME":{
             return {
                 ...state,
-                theme:action.payload
+                theme:action.value
             };
         }
         case "NIGHT_THEME":{
             return {
                 ...state,
-                theme:action.payload
+                theme:action.value
             };
         }
     }

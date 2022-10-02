@@ -1,13 +1,15 @@
-import { Image, Button, Text, Box, Flex, Spacer, Link, Popover, PopoverContent, PopoverArrow, PopoverTrigger } from '@chakra-ui/react'
+import {Hide,Input,  PopoverBody, PopoverHeader ,Show, Image, Button, Text, Box, Flex, Spacer, Popover, PopoverContent, PopoverArrow, PopoverTrigger, useDisclosure } from '@chakra-ui/react'
 import { CgMenuGridR } from "react-icons/cg";
 import { TbSearch } from "react-icons/tb";
 import { BsFillBellFill, BsTranslate } from "react-icons/bs";
 import { IoSearch, IoMdSunny, IoMdMoon } from "react-icons/io";
 import { ThemeContext } from '../Context/Theme/ThemeContextProvider';
 import { useContext } from 'react';
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,} from '@chakra-ui/react'
+import { Link } from "react-router-dom";
 
 function Navbar() {
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { state, dispatch } = useContext(ThemeContext)
 
   function handleTheme() {
@@ -22,15 +24,17 @@ function Navbar() {
 
   return (
     <>
-      <Flex pl="20" pr="20" gap={"5"} bg="#03a9f4" h="50" color={"white"} pt="3">
-        <Link>
-          <Image src="https://wassets.hscicdn.com/static/images/logo.png" alt="ESPNcricinfo" h="6" />
+      <Flex pl="5" pr="20" gap={"5"} bg="#03a9f4" h="70px" color={"white"} pt="3">
+      <Hide below='md'>
+        <Link to="/"> 
+          <Image ml="20" src="https://wassets.hscicdn.com/static/images/logo.png" alt="ESPNcricinfo" h="6" />
         </Link>
+        </Hide>
 
         {heading.map((el) => (
           <Popover key={el.id} trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Link>{el.title}</Link>
+              <Link to="video">{el.title}</Link>
             </PopoverTrigger>
             <PopoverContent>
               <PopoverArrow />
@@ -52,14 +56,33 @@ function Navbar() {
           </Popover>
         ))}
 
+<Hide below='lg'>
         <Spacer />
         <Link> Edition In </Link>
         <Box onClick={handleTheme}>{state.theme == "day" ? <IoMdSunny size='25px' /> : <IoMdMoon size='25px' />} </Box>
-        <Link> <BsFillBellFill size='25px' /> </Link>
+        
+     <BsFillBellFill onClick={onOpen} size='25px' /> 
+     {/* <Button >Open Modal</Button> */}
+
+<Modal isOpen={isOpen} onClose={onClose}>
+  <ModalOverlay />
+  <ModalContent>
+    <ModalHeader>Daily News Letters</ModalHeader>
+    <ModalCloseButton />
+    <ModalBody>
+      <Input type="email" placeholder='Enter Your Email'/>
+      <Button colorScheme='blue' mt="10px" onClick={onClose}>
+        Submit
+      </Button>
+    </ModalBody>
+  </ModalContent>
+</Modal>
         <Link> <BsTranslate size='25px' /> </Link>
         <Link> <CgMenuGridR size="27px" /></Link>
         <Link> <TbSearch size='25px' /> </Link>
+    </Hide>
       </Flex>
+    
     </>
   )
 }

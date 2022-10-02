@@ -15,21 +15,11 @@ function LeftMenu(){
         <Box borderRadius={"17px"} w="full" bg="white" pb="2" mb="4">
            <Text p="3" pl="4"  fontSize='12px' fontWeight={"semibold"}>Key Series</Text>
            <Divider width="100%" mb="3"/>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
-            <Flex pl="4" h="6"> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>here</Text>  </Flex>
+            {seriese.map((el)=>(
+            <Flex pl="4" h="6" key={el.id}> <ChevronRightIcon mt="2px" h="18px" w="18px" color="#03a9f4"/> <Text ml="2" fontSize='sm'>{el}</Text>  </Flex>
+            ))}
+
+            
         </Box>
         
         <Box borderRadius={"17px"} w="full" bg="white" pb="2" mb="4">
@@ -70,3 +60,5 @@ function LeftMenu(){
 }
 
 export default LeftMenu
+
+const seriese = ["India v South Africa", "Ind-A v NZ-A", "UAE v Bangladesh", "Marsh Cup", "Country Div1", "Legends League", "CWC Super League", "Women's Asia Cup", "Pakistan v England", "West Indies v New Zealand", "Sheffield Shield", "Men's T20 World Cup", "Women's Championship"]
